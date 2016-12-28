@@ -1,0 +1,8 @@
+<h1>Sessions#login</h1>
+<p>Find me in app/views/sessions/login.html.erb</p>
+
+<%= form_for :user, url: login_sessions_path do |login_form| %>
+    <%= login_form.email_field :email, placeholder: 'Email' %>
+    <%= login_form.password_field :password, placeholder: 'Password' %>
+    <%= login_form.submit 'Login' %>
+<% end %>

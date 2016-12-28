@@ -1,0 +1,12 @@
+<%= link_to 'Home', root_path %>
+
+<% if current_user %>
+    <%= link_to 'logout', logout_sessions_path, method: 'delete', data: {confirm: 'Are you sure to logout?'} %>
+<% else %>
+    <% if root_account %>
+        <%= link_to 'login', login_sessions_path %>
+        <%= link_to 'Signup', 'user-signup-path' %>
+    <% else %>
+        <%= link_to 'Account signup', account_signup_sessions_path %>
+    <% end %>
+<% end %>

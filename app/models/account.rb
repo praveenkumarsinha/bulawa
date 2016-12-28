@@ -28,6 +28,14 @@ class Account < ApplicationRecord
   #==== Accepts nested attributes =====================================
   accepts_nested_attributes_for :users
 
+  def host
+    if Rails.env.production?
+      raise 'DoCodeHerePraveenItsPending'
+    else
+      [subdomain, 'localhost.local:3000'].join('.')
+    end
+  end
+
   private
   def do_downcase_subdomain
     self.subdomain.try(:downcase)

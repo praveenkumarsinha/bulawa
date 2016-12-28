@@ -1,0 +1,15 @@
+<h1>Sessions#account_signup</h1>
+<p>Find me in app/views/sessions/account_signup.html.erb</p>
+
+<%= form_for(@account, url: account_signup_sessions_path) do |form| %>
+    <%= form.text_field :name, placeholder: 'Name' %>
+    <%= form.text_field :subdomain, placeholder: 'Subdomain' %>
+    <br/>
+    <%= form.fields_for :users do |user_form| %>
+        <%= user_form.text_field :name, placeholder: 'Name' %>
+        <%= user_form.text_field :email, placeholder: 'Email' %>
+        <%= user_form.password_field :password, placeholder: 'Password' %>
+    <% end %>
+    <br/>
+    <%= form.submit 'Account Signup' %>
+<% end %>
