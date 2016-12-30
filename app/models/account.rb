@@ -24,6 +24,7 @@ class Account < ApplicationRecord
 
   #==== Callbacks (Filters) ===========================================
   before_save :do_downcase_subdomain
+  after_create :do_generate_default_apps
 
   #==== Accepts nested attributes =====================================
   accepts_nested_attributes_for :users
@@ -37,6 +38,13 @@ class Account < ApplicationRecord
   end
 
   private
+
+  def do_generate_default_apps
+    App::ENVIRONMENTS.each do |environment|
+      apps.find_or_create_by(environment: environment, name: App::DEFAULT_NAME)
+    end
+  end
+
   def do_downcase_subdomain
     self.subdomain.try(:downcase)
   end

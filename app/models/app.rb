@@ -1,6 +1,7 @@
 class App < ApplicationRecord
 
   #==== Constants =====================================================
+  DEFAULT_NAME = 'Stock(default) app'
   ENVIRONMENTS = %w(staging production)
 
   #==== Associations ==================================================

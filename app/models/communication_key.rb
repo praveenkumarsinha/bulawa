@@ -2,7 +2,7 @@ class CommunicationKey < ApplicationRecord
 
   #==== Associations ==================================================
   belongs_to :app, inverse_of: :communication_keys
-  belongs_to :generator, class_name: 'User', foreign_key: :generator_id
+  belongs_to :generator, class_name: 'User', foreign_key: :generator_id, optional: true
 
   #==== Validations ===================================================
   validates :app, presence: true

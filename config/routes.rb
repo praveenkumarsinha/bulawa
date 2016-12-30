@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  #app's root
+  #application's root
   root to: 'home#index'
 
-  #app's dashboard (home of an account i.e subdomain)
+  #application's dashboard (home of an account i.e subdomain)
   get 'dashboard', to: 'home#dashboard', as: 'dashboard'
 
   resource :sessions, only: [] do
@@ -18,5 +18,7 @@ Rails.application.routes.draw do
       post 'account_signup'
     end
   end
+
+  resource :apps
 
 end

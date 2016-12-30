@@ -8,5 +8,6 @@ class CreateCommunicationKeys < ActiveRecord::Migration[5.0]
       t.datetime :used_at
       t.timestamps
     end
+    add_index :communication_keys, [:access_token], unique: true
   end
 end
