@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20161225073558) do
   create_table "entities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
     t.integer  "app_id"
     t.string   "name"
+    t.string   "identity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["app_id"], name: "index_entities_on_app_id", using: :btree

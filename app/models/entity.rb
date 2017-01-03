@@ -1,5 +1,8 @@
 class Entity < ApplicationRecord
 
+  #==== Constants =====================================================
+  PRIMARY_ATTRS = ['name', 'identity']
+
   #==== Associations ==================================================
   belongs_to :app, inverse_of: :entities
   has_many :details, as: :detailable, dependent: :destroy
@@ -12,5 +15,7 @@ class Entity < ApplicationRecord
 
   #==== Validations ===================================================
   validates :app, presence: true
+  validates :name, length: {within: 1..191}, presence: true
+  validates :identity, length: {within: 1..191}, presence: true
 
 end

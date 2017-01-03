@@ -1,1 +1,6 @@
-<%=={first_name: 'praveen', middle_name: 'kumar', last_name: 'sinha'}.to_json%>
+<%==if @entity
+@entity.valid? ? @entity : @entity.errors
+else
+nil
+end.to_json
+%>
